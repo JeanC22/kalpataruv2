@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('texto');
             $table->timestamps();
             $table->bigInteger('estado')->default('0');
+            $table->bigInteger('likes')->default('0');
             $table->bigInteger('usuario_id')->unsigned();
             $table->foreign('usuario_id')->references('id')->on('users');
         });

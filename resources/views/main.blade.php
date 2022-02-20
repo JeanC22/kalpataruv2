@@ -147,8 +147,6 @@
                                                             <p class="card-text">{{$deseo->user->curso->nombreCurso}}</p>
                                                             <p class="card-text">
                                                                 {{$deseo->texto}}
-                                                                {{$cantidad}}
-
                                                             </p>
                                                         </div>
                                                     </div>
