@@ -13,6 +13,7 @@ class Deseo extends Model
     protected $table ="deseos";
     // timestamp
     public $timestamps = false;
+    protected $fillable = ['texto','estado','likes']; 
     
     public function user(){
         return $this->belongsTo(User::class,'usuario_id','id');

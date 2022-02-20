@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DeseoController;
 use App\models\Deseo;
+use App\Http\Livewire\Deseos;
 
 
 /*
@@ -21,9 +22,12 @@ Route::get('/', function () {
     return view('main', ['Deseos'=> $deseos]);
 });
 
-Route::middleware(['auth:sanctum', 'verified', ])->get('/dashboard', function () {
-    return view('dashboard');
-})->name('dashboard');
+Route::middleware(['auth:sanctum', 'verified', ])->group(function () {
+    Route::get('/deseos',Deseos::class);
+    Route::get('/dashboard',function(){
+        return view ('dashboard');
+    })->name('dashboard');
+});
 
 
 // Route::group(['middleware' => ['auth'], 'prefix'=>'admin'], function(){

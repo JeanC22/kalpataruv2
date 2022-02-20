@@ -131,15 +131,17 @@
                                 $primera = true;
                                 @endphp
                                 @foreach ($Deseos as $deseo)
-                                        @if ($cantidad==1 && $primera==false)
+                                @if ($deseo->estado == 1)
+                                        @if ($cantidad==1 && $primera==false )
                                         <div class="carousel-item ">
                                             <div class="row">
                                                 @endif
-                                                @if ($cantidad==1 && $primera)
+                                                @if ($cantidad==1 && $primera==true  )
                                                     <div class="carousel-item active">
                                                     <div class="row">
                                                     {{$primera = false;}}
                                                     @endif
+
                                                 <div class="col-md-4 mb-3">
                                                     <div class="card">
                                                         <div class="card-body">
@@ -159,11 +161,11 @@
                                             {{-- aqui termina sin crear mas --}}
                                         </div>
                                         @php
-                                        $cantidad = 1;
+                                            $cantidad = 1;
                                         @endphp
                                         @endif
-
-                                        @endforeach
+                                    @endif
+                                    @endforeach
                                         {{-- prueba --}}
 
                                     </div>

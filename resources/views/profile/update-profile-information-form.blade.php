@@ -1,4 +1,7 @@
 <x-jet-form-section submit="updateProfileInformation">
+    <link href="{{ URL::asset('/css/app.css') }}" rel="stylesheet">
+    <script src="{{ URL::asset('/js/app.js') }}"></script>
+
     <x-slot name="title">
         {{ __('Profile Information') }}
     </x-slot>

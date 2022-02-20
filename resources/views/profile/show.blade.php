@@ -1,5 +1,8 @@
 <x-app-layout>
     <x-slot name="header">
+        <link href="{{ URL::asset('/css/app.css') }}" rel="stylesheet">
+        <script src="{{ URL::asset('/js/app.js') }}"></script>
+
         <h2 class="h4 font-weight-bold">
             {{ __('Profile') }}
         </h2>
