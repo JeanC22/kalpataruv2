@@ -13,7 +13,7 @@ use App\Models\Deseo;
 use App\Models\Curso;
 
 
-class User extends Authenticatable
+class User extends \TCG\Voyager\Models\User
 {
     use HasApiTokens;
     use HasFactory;

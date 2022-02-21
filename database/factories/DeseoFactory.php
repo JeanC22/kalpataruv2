@@ -19,8 +19,8 @@ class DeseoFactory extends Factory
         return [
             'texto' => $this->faker->paragraph(),
             'estado' => $this->faker->numberBetween(0,1),
-            'usuario_id'=> $this->faker->numberBetween(1,50),
-            'likes'=>0,
+            'usuario_id'=> $this->faker->numberBetween(4,50),
+            // 'likes'=>0,
         ];
     }
 }

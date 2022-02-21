@@ -23,7 +23,7 @@ return new class extends Migration
             $table->foreignId('current_team_id')->nullable();
             $table->string('profile_photo_path', 2048)->nullable();
             $table->timestamps();
-            $table->unsignedSmallInteger(column: 'role_id')->nullable();
+            // $table->unsignedSmallInteger(column: 'role_id')->nullable();
             $table->unsignedBigInteger('curso_id');
             $table->foreign('curso_id')->references('id')->on('cursos');
 

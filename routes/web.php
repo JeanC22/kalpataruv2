@@ -22,22 +22,11 @@ Route::get('/', function () {
     return view('main', ['Deseos'=> $deseos]);
 });
 
-Route::middleware(['auth:sanctum', 'verified', ])->group(function () {
-    Route::get('/deseos',Deseos::class);
-    Route::get('/dashboard',function(){
-        return view ('dashboard');
-    })->name('dashboard');
-});
 
-
-// Route::group(['middleware' => ['auth'], 'prefix'=>'admin'], function(){
-
-//     Route::resource();
-// });
-
-// Route::group(['middleware' => ['auth'], 'prefix'=>'user'], function(){
-
-
-// });
 Route::resource('deseo',DeseoController::class);
 
+
+
+Route::group(['prefix' => 'admin'], function () {
+    Voyager::routes();
+});
