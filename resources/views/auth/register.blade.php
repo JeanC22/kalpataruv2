@@ -1,3 +1,4 @@
+
 <x-guest-layout>
     <x-jet-authentication-card>
         <x-slot name="logo">
@@ -31,35 +32,24 @@
             
             <div class="mt-4">
                 <x-jet-label for="curso_id" value="{{ __('curso') }}" />
-                    <select name="curso" class="form-select block mt-1  w-full" id="curso_id">
-                        <option value="all" selected >todos los cursos</option>
-                        <option value="1">1 Bachillerato Cientifico-Tecnologico</option>
-                        <option value="2">2 Bachillerato Cientifico-Tecnologico</option>
-                        <option value="3">1 Bachillerato de Ciencias Sociales</option>
-                        <option value="4">2 Bachillerato de Ciencias Sociales</option>
-                        <option value="5">1 Formacion de Servicios Administrativos</option>
-                        <option value="6">2 Formacion de Servicios Administrativos</option>
-                        <option value="7">1 Grado medio de Sistemas Microinformaticos y Redes</option>
-                        <option value="8">2 Grado medio de Sistemas Microinformaticos y Redes</option>
-                        <option value="9">1 Grado medio de Gestion Administrativa</option>
-                        <option value="10">2 Grado medio de Gestion Administrativa</option>
-                        <option value="11">1 Grado medio de Actividades Comerciales</option>
-                        <option value="12">2 Grado medio de Actividades Comerciales</option>
-                        <option value="13">1 Grado superior de Administracion de Sistemas Informaticos en Red</option>
-                        <option value="14">2 Grado superior de Administracion de Sistemas Informaticos en Red</option>
-                        <option value="15">1 Grado superior de Desarollo de Aplicaciones Web</option>
-                        <option value="16">2 Grado superior de Desarollo de Aplicaciones Web</option>
-                        <option value="17">1 Grado Superior de Administración y Finanzas es</option>
-                        <option value="18">2 Grado Superior de Administracion y Finanzas es</option>
-                        <option value="19">2 Grado Superior de Administracion y Finanzas eu</option>
-                        <option value="20">1 Grado Superior de Marketing y Publicidad</option>
-                        <option value="21">2 Grado Superior de Marketing y Publicidad</option>
-                        <option value="22">1 Grado Superior de Integración Social</option>
-                        <option value="23">2 Grado Superior de Integración Social</option>
+                    <select name="curso" class="form-select block mt-1  w-full" id="curso_id" required>
+                        
+                      
+                        
+                        @foreach ($cursos as $curso) 
+                        {
+                            <option value="{{$curso->id}}">{{$curso->nombreCurso}}</option>   
+                        }
+                        @endforeach
+                        
+                        
+               
+
+
                     </select>
                     <div class="mt-4 d-none">
                         <x-jet-label for="role_id" value="{{ __('role_id') }}" />
-                        <x-jet-input id="role_id"   type="text" name="role_id" value="0" required />
+                        <x-jet-input id="role_id"   type="text" name="role_id" value="2" required />
                     </div>
             </div>
             @if (Laravel\Jetstream\Jetstream::hasTermsAndPrivacyPolicyFeature())

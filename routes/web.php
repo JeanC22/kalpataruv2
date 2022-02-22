@@ -19,14 +19,22 @@ use App\Http\Livewire\Deseos;
 
 Route::get('/', function () {
     $deseos = Deseo::ALL(); 
+ $deseos=Deseo::InRandomOrder()->limit(21)->get();
     return view('main', ['Deseos'=> $deseos]);
-});
+})->name('home');
 
 
 Route::resource('deseo',DeseoController::class);
 
+Route::middleware(['auth:sanctum','verified'])->get('/dashboard', function(){
 
+    return view('dashboard');
+})->name('dashboard');
 
 Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();
+});
+
+Route::get('/phpinfo', function() {
+    return phpinfo();
 });

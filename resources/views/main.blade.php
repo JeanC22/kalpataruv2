@@ -211,8 +211,9 @@
         </div>
     </div>
     </div>
-    <div class="abajo"></div>
-
+    <section id="bg-kalpa">
+        <div class="arriba"></div>
+    </section>
 </body>
 
 </html>
