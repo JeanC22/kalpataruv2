@@ -337,7 +337,7 @@ CREATE TABLE IF NOT EXISTS `menus` (
   UNIQUE KEY `menus_name_unique` (`name`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Volcando datos para la tabla kalpataruv2.menus: ~1 rows (aproximadamente)
+-- Volcando datos para la tabla kalpataruv2.menus: ~0 rows (aproximadamente)
 /*!40000 ALTER TABLE `menus` DISABLE KEYS */;
 INSERT INTO `menus` (`id`, `name`, `created_at`, `updated_at`) VALUES
 	(1, 'admin', '2022-02-20 22:59:18', '2022-02-20 22:59:18');
@@ -363,7 +363,7 @@ CREATE TABLE IF NOT EXISTS `menu_items` (
   CONSTRAINT `menu_items_menu_id_foreign` FOREIGN KEY (`menu_id`) REFERENCES `menus` (`id`) ON DELETE CASCADE
 ) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Volcando datos para la tabla kalpataruv2.menu_items: ~12 rows (aproximadamente)
+-- Volcando datos para la tabla kalpataruv2.menu_items: ~10 rows (aproximadamente)
 /*!40000 ALTER TABLE `menu_items` DISABLE KEYS */;
 INSERT INTO `menu_items` (`id`, `menu_id`, `title`, `url`, `target`, `icon_class`, `color`, `parent_id`, `order`, `created_at`, `updated_at`, `route`, `parameters`) VALUES
 	(1, 1, 'Dashboard', '', '_self', 'voyager-boat', NULL, NULL, 1, '2022-02-20 22:59:18', '2022-02-20 22:59:18', 'voyager.dashboard', NULL),
@@ -444,7 +444,7 @@ CREATE TABLE IF NOT EXISTS `permissions` (
   KEY `permissions_key_index` (`key`)
 ) ENGINE=InnoDB AUTO_INCREMENT=36 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Volcando datos para la tabla kalpataruv2.permissions: ~35 rows (aproximadamente)
+-- Volcando datos para la tabla kalpataruv2.permissions: ~34 rows (aproximadamente)
 /*!40000 ALTER TABLE `permissions` DISABLE KEYS */;
 INSERT INTO `permissions` (`id`, `key`, `table_name`, `created_at`, `updated_at`) VALUES
 	(1, 'browse_admin', NULL, '2022-02-20 22:59:18', '2022-02-20 22:59:18'),
@@ -586,9 +586,10 @@ CREATE TABLE IF NOT EXISTS `sessions` (
   KEY `sessions_last_activity_index` (`last_activity`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Volcando datos para la tabla kalpataruv2.sessions: ~1 rows (aproximadamente)
+-- Volcando datos para la tabla kalpataruv2.sessions: ~2 rows (aproximadamente)
 /*!40000 ALTER TABLE `sessions` DISABLE KEYS */;
 INSERT INTO `sessions` (`id`, `user_id`, `ip_address`, `user_agent`, `payload`, `last_activity`) VALUES
+	('38EXv6D0kRiRcV2jzQZ1wuyKkiJqs3qGKf0YvlKj', NULL, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/97.0.4692.99 Safari/537.36 OPR/83.0.4254.46', 'YTozOntzOjY6Il90b2tlbiI7czo0MDoiN3VKN3lYbTU4SnhFaWlEZHBJUFhOdnkyWnlIbVZhcDJ3TEM1Z3gyTyI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MjE6Imh0dHA6Ly8xMjcuMC4wLjE6ODAwMCI7fXM6NjoiX2ZsYXNoIjthOjI6e3M6Mzoib2xkIjthOjA6e31zOjM6Im5ldyI7YTowOnt9fX0=', 1645514994),
 	('q4vcxLkamU6BHomtuAW221kd1sXfqGmdY7VzyWGX', 1, '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/97.0.4692.99 Safari/537.36 OPR/83.0.4254.46', 'YTo2OntzOjY6Il90b2tlbiI7czo0MDoiN09USjhKc3piVFRzemNmMTJzcDdqYXJmSE9tVHM2RHl0TDFnb0hFMSI7czozOiJ1cmwiO2E6MDp7fXM6OToiX3ByZXZpb3VzIjthOjE6e3M6MzoidXJsIjtzOjQ3OiJodHRwOi8vbG9jYWxob3N0L2thbHBhdGFydXYyL3B1YmxpYy9hZG1pbi91c2VycyI7fXM6NjoiX2ZsYXNoIjthOjI6e3M6Mzoib2xkIjthOjA6e31zOjM6Im5ldyI7YTowOnt9fXM6MTc6InBhc3N3b3JkX2hhc2hfd2ViIjtzOjYwOiIkMnkkMTAkVWViNWJFWGdjS1VTaDRNTG14UndrdWd2czdYMFgxZ25DeW1VVTM2c2cuSUFKLmdIQ3hXcUMiO3M6NTA6ImxvZ2luX3dlYl81OWJhMzZhZGRjMmIyZjk0MDE1ODBmMDE0YzdmNThlYTRlMzA5ODlkIjtpOjE7fQ==', 1645401745);
 /*!40000 ALTER TABLE `sessions` ENABLE KEYS */;
 
@@ -668,7 +669,7 @@ CREATE TABLE IF NOT EXISTS `users` (
 -- Volcando datos para la tabla kalpataruv2.users: ~51 rows (aproximadamente)
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
 INSERT INTO `users` (`id`, `role_id`, `name`, `email`, `avatar`, `email_verified_at`, `password`, `two_factor_secret`, `two_factor_recovery_codes`, `remember_token`, `settings`, `current_team_id`, `profile_photo_path`, `created_at`, `updated_at`, `curso_id`) VALUES
-	(1, 1, 'admin', 'admin@admin.com', 'users/default.png', NULL, '$2y$10$Ueb5bEXgcKUSh4MLmxRwkugvs7X0X1gnCymUU36sg.IAJ.gHCxWqC', NULL, NULL, 'VmSIKC6TLkuR6to1fTy25RH9GFv7tunHMCQdgyZ4nB5mb1vaZGbemltgkcV4', '{"locale":"en"}', NULL, NULL, '2022-02-20 23:00:28', '2022-02-20 23:43:33', NULL),
+	(1, 1, 'admin', 'admin@admin.com', 'users/default.png', NULL, '$2y$10$Ueb5bEXgcKUSh4MLmxRwkugvs7X0X1gnCymUU36sg.IAJ.gHCxWqC', NULL, NULL, 'VmSIKC6TLkuR6to1fTy25RH9GFv7tunHMCQdgyZ4nB5mb1vaZGbemltgkcV4', '{"locale":"en"}', NULL, NULL, '2022-02-20 23:00:28', '2022-02-20 23:43:33', 1),
 	(3, 2, 'Dr. Shaun Abernathy DVM', 'jon83@example.net', 'users/default.png', '2022-02-20 23:03:01', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', NULL, NULL, 'kyTQbhMFZX', NULL, NULL, NULL, '2022-02-20 23:03:01', '2022-02-20 23:03:01', 10),
 	(4, 2, 'Amara Howell', 'jbednar@example.com', 'users/default.png', '2022-02-20 23:03:01', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', NULL, NULL, '9RuReJQkjS', NULL, NULL, NULL, '2022-02-20 23:03:01', '2022-02-20 23:03:01', 11),
 	(5, 2, 'Aylin Anderson', 'tbrown@example.net', 'users/default.png', '2022-02-20 23:03:01', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', NULL, NULL, 'bI7qsolndT', NULL, NULL, NULL, '2022-02-20 23:03:01', '2022-02-20 23:03:01', 8),
