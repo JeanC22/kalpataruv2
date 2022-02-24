@@ -80,12 +80,12 @@
                             </div>
                             <div class="ps-3">
                                 <div class="mb-2">
-                                    <a href="https://getbootstrap.com/" class="h5 font-weight-bolder text-decoration-none text-dark">MIS DESEOS</a>
+                                    <a href="{{ route('deseo.index') }}" class="h5 font-weight-bolder text-decoration-none text-dark">MIS DESEOS</a>
                                 </div>
                                 <p class="text-muted">
                                     Aquí podras ver los deseos que haz creados y han sido aceptados y los que aun no ha aceptado ningun administrador.
                                 </p>
-                                <a href="de" class="text-decoration-none">
+                                <a href="{{ route('deseo.index') }}" class="text-decoration-none">
                                     <div class="mt-3 d-flex align-content-center font-weight-bold text-primary">
                                         <div>VER DESEO</div>
 

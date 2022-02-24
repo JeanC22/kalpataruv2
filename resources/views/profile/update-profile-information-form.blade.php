@@ -13,7 +13,7 @@
     <x-slot name="form">
 
         <x-jet-action-message on="saved">
-            {{ __('Saved.') }}
+            {{ __('Guardar.') }}
         </x-jet-action-message>
 
 
@@ -41,7 +41,7 @@
                     <span class="visually-hidden">Loading...</span>
                 </div>
 
-				{{ __('Save') }}
+				{{ __('Guardar') }}
 			</x-jet-button>
 		</div>
     </x-slot>

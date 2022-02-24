@@ -17,7 +17,8 @@ class DeseoController extends Controller
      */
     public function index()
     {
-        //
+        $deseo = Deseo::all();
+        return view('profile.mis-deseos', ['Deseos'=>$deseo]);
     }
 
     /**
@@ -84,14 +85,13 @@ class DeseoController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Deseo  $deseo
      * @return \Illuminate\Http\Response
      */
-    public function show(Deseo $deseo)
+    public function show()
     {
-        //
+        
     }
-
+ 
     /**
      * Show the form for editing the specified resource.
      *
