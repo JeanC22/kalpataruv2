@@ -64,11 +64,14 @@ class User extends \TCG\Voyager\Models\User
         'profile_photo_url',
     ];
     
-    public function deseo(){
+    public function deseos(){
         return $this->hasMany(Deseo::class,'usuario_id','id');
     }
       
     public function curso(){
         return $this->belongsTo(Curso::class,'curso_id','id');
+    }
+    public function valorar(){
+        return $this->belongsToMany(Deseo::class,'valoracion_deseos', 'usuario_id','deseo_id');
     }
 }

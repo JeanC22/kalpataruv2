@@ -6,18 +6,79 @@
             {{ __('Deseos') }}
         </h2>
     </x-slot>
-<div class="container">
-    <div class="card shadow bg-light ">
-        <div class="card-body bg-white px-5 py-3 border-bottom rounded-top">
-            <div class="col-12 col-md-12 col-sm-10 col-s-8">
-                <div class="text-center">
-                    <h3 class="h3">DESEOS ACEPTADOS</h3>
-                    <h3 class="h3">DESEOS PENDIENRES</h3>
+    <div class="container">
+        <div class="card shadow bg-light ">
+            <div class="card-body bg-white px-5 py-3 border-bottom rounded-top">
+                <div class="col-12 col-md-12 col-sm-10 col-s-8">
+                    <div class="d-flex justify-content-center">
+
+                        <button class="btn-sin">
+                        <a class="nav-link text-dark" onclick="deseosAceptados()">
+                            <h3 class="me-5 h3 shadow-k">DESEOS ACEPTADOS</h3>
+                        </a>
+                    </button>
+                        <button  class="btn-sin" onclick="deseosEspera()">
+                        <a class="nav-link text-dark" >
+                            <h3 class="ms-5 h3 shadow-k">DESEOS EN ESPERA</h3>
+                        </a>
+                    </button>
+                    </div>
                 </div>
             </div>
         </div>
+        {{-- deseos aceptado --}}
+        <div id="deseosAceptado">
+            @foreach (Auth::user()->deseos as $deseo)
+            @if ($deseo->estado==1)
+            <div class="card shadow bg-light mt-3 ">
+                <div class="card-body bg-white px-5 py-3 border-bottom rounded-top">
+                    <div class="col-12 col-md-12 col-sm-10 col-s-8">
+                        <div class="col-md-12 fs-4 ">
+                            {{-- deseos aceptados --}}
+                            {{$deseo->texto}}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            @endif
+            @endforeach
+        </div>
+        {{-- fin de desos aceptados --}}
+        {{-- deseos denegados o espera --}}
+        <div id="deseosEspera" class="d-none">
+            @foreach (Auth::user()->deseos as $deseo)
+            @if ($deseo->estado==0)
+            <div class="card shadow bg-light mt-3 ">
+                <div class="card-body bg-white px-5 py-3 border-bottom rounded-top">
+                    <div class="col-12 col-md-12 col-sm-10 col-s-8">
+                        <div class="col-md-12 fs-4 ">
+                            {{-- deseos aceptados --}}
+                            {{$deseo->texto}}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            @endif
+            @endforeach
+        </div>
+        {{-- fin de deseos dene o espera --}}
     </div>
-</div>
+    <script type="text/javascript">
+        // aqui se cambiara la visibilidad de la ventana
+        function deseosEspera() {
 
+            var elementAceptado =  document.getElementById('deseosAceptado');
+            elementAceptado.className = 'd-none'
+            var elementEspera=  document.getElementById('deseosEspera');
+            elementEspera.className = 'd-block'
+        }
+        function deseosAceptados() {
 
+            var elementEspera=  document.getElementById('deseosEspera');
+            elementEspera.className = 'd-none'
+            var elementAceptado =  document.getElementById('deseosAceptado');
+            elementAceptado.className = 'd-block'
+
+}
+    </script>
 </x-app-layout>

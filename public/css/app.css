@@ -6751,6 +6751,9 @@ textarea.form-control-lg {
 .shadow {
   box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;
 }
+.shadow {
+  box-shadow: 0 0.5rem 1rem rgba() !important;
+}
 
 .shadow-sm {
   box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075) !important;
@@ -11445,4 +11448,11 @@ section#bg-kalpa .abajo {
   width: 40px;
   height: 40px;
   z-index: 1;
+}
+
+
+/* corazon */
+.shadow-k{
+  -webkit-box-shadow: 0px 8px 18px 6px rgba(255, 150, 162,.25); 
+box-shadow: 0px 8px 18px 6px rgba(255, 150, 162,.25);
 }
