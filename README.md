@@ -4,15 +4,53 @@
 
 - [x] Php version ^8.0
 - [x] Composer version 2.2.6
+- [x] Laravel Framework 9.1.0
 
-## Code of Conduct
+## Instalación
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+Este proyecto no necesita ningun tipo de instalacion ya que trae incluido el vendor y node modules.
 
-## Security Vulnerabilities
+## Despliegue
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+Para poder visualizar el proyecto se puede hacer de dos formas,
 
+Iniciando el proyecto con el comando 
+```
+php artisan serv
+
+o 
+
+mediante servidor local.
+
+```
+
+
+## Usuarios para pruebas
+
+Aquí contamos con dos usuarios uno administrador y otro comun.
+
+### ADMIN
+    CORREO: admin@admin.com
+    PASSWORD: admin
+    
+    rutas especiales de admin 
+    /admin (la cual le dara acceso al Voyager)
+    
+### USER
+    CORREO: user@user.com
+    PASSWORD: user
+
+
+### Resource
+    AOS
+    ElevatorJS
+    Chartjs
+    Bootstrap 5
+    livewire
+    php
+    jQuery CDN
+    Laravel
+    Select2
 ## License
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
