@@ -1,4 +1,4 @@
-<p align="center"> target="_blank"><img src="https://static-cdn.jtvnw.net/jtv_user_pictures/032b6d18-0850-457d-b43d-8ef0ba831999-profile_image-300x300.png" width="400"></p>
+<p align="center"><img src="https://static-cdn.jtvnw.net/jtv_user_pictures/032b6d18-0850-457d-b43d-8ef0ba831999-profile_image-300x300.png" width="400"></p>
 
 ## Contributing
 
