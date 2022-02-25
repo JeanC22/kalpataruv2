@@ -3,7 +3,9 @@
         <x-slot name="logo">
             <x-jet-authentication-card-logo />
         </x-slot>
-
+        <section id="bg-kalpa">
+            <div class="arriba"></div>
+        </section>
         <div class="card-body">
 
             <x-jet-validation-errors class="mb-3 rounded-0" />
@@ -17,7 +19,7 @@
             <form method="POST" action="{{ route('login') }}">
                 @csrf
                 <div class="mb-3">
-                    <x-jet-label value="{{ __('Email') }}" />
+                    <x-jet-label value="{{ __('Correo') }}" />
 
                     <x-jet-input class="{{ $errors->has('email') ? 'is-invalid' : '' }}" type="email"
                                  name="email" :value="old('email')" required />
@@ -25,7 +27,7 @@
                 </div>
 
                 <div class="mb-3">
-                    <x-jet-label value="{{ __('Password') }}" />
+                    <x-jet-label value="{{ __('Contraseña') }}" />
 
                     <x-jet-input class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" type="password"
                                  name="password" required autocomplete="current-password" />
@@ -33,10 +35,10 @@
                 </div>
 
                 <div class="mb-3">
-                    <div class="custom-control custom-checkbox">
+                    <div class="custom-control ">
                         <x-jet-checkbox id="remember_me" name="remember" />
                         <label class="custom-control-label" for="remember_me">
-                            {{ __('Remember Me') }}
+                            {{ __('Recuérdame') }}
                         </label>
                     </div>
                 </div>
@@ -44,7 +46,7 @@
                 <div class="mb-0">
                     <div class="d-flex justify-content-end align-items-baseline">
                         <x-jet-button>
-                            {{ __('Log in') }}
+                            {{ __('ACCEDER') }}
                         </x-jet-button>
                     </div>
                 </div>
@@ -52,3 +54,6 @@
         </div>
     </x-jet-authentication-card>
 </x-guest-layout>
+<section id="bg-kalpa">
+    <div class="arriba"></div>
+</section>

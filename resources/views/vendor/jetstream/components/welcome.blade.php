@@ -106,12 +106,12 @@
                                 <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAABmJLR0QA/wD/AP+gvaeTAAACNklEQVRoge3YPWvVYBiH8V9bK6jFUtD6UooOXVwcXLSTil9AEAURdNdBBAfRb+AsToofwEFQLHVxEHwbRCwWBEFBFEW0WBRqa7UOSerhmHOa5OQkKeSC/3BCuJ/rPkmeJ3moqampWS1sxBlM4COWsIA3mMQ5jCSoMxKeew9vwxpLYc0JnMZgnuJ9OI9v4UDtMo9rGI6pM4zr4Tkr1ZnFBfR3Kj+E+wkGbM4XHGioczA8lrbOY2zJKj+I5xkGbbwaJ8Ik+ddb5aX4K9qWHtzpYNAoC/iVQ50pDKRp4GQOg+ady0nlB/C5AsJxV3OsWbY3poEj2Jy02wLpx6kkJ04o/99ulVfNsj0xDbyXbEEqgz9YL5jV8P8ttAbbizRKSS+2NR9oZFHQZZWZb/wR9xDPFCSShd+CV5pl4hp4VoxLJqYx13ggroEHxbhkIpHbDsFzUPaUGZd9STudrIBsc6bET/uxjFdAuDlHk8pH3KqAdJSn4p/XtoziewXkF7EnrXzE8Qo0cCmrfMTVEuXvynDrNNOPhyXIv8OmTuUjRsOCRcnP6uC+b8WYf/tB3cwc9uctH7Fb8LLXLflFwRdhV9mLr12Qn5dhscrKLsGXW17yP3G4KPmInXjdofiSYLE8VLD7MlvxYgXBdpmR4g2zWwzhkfTyHwSTQiXYINguTyo/LVhbKsVa3LSy/BM5rrB504crWsvfxrrS7FJwVrCD0Ch/Q7DvtGo4hk/4gYslu3REX9kCNTU1FeYvT+fivmlYTZIAAAAASUVORK5CYII="/>                            </div>
                             <div class="ps-3">
                                 <div class="mb-2">
-                                    <span class="h5 font-weight-bolder text-decoration-none text-dark"> MIS ME GUSTAS</span>
+                                    <a href="{{route('votados.index')}}" class="h5 font-weight-bolder text-decoration-none text-dark"> MIS ME GUSTAS</a>
                                 </div>
                                 <p class="text-muted">
                                     Aquí podras ver a los deseos los cuales le haz dado me gustas.
                                 </p>
-                                <a href="de" class="text-decoration-none">
+                                <a href="{{route('votados.index')}}" class="text-decoration-none">
                                     <div class="mt-3 d-flex align-content-center font-weight-bold text-primary">
                                         <div>VER MIS ME GUSTAS</div>
 

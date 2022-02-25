@@ -12,7 +12,19 @@
             <!-- Left Side Of Navbar -->
             <ul class="navbar-nav me-auto">
                 <x-jet-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
-                    {{ __('Dashboard') }}
+                    {{ __('ACTIVIDADES') }}
+                </x-jet-nav-link>
+                <x-jet-nav-link href="{{ route('home') }}" :active="request()->routeIs('/home')">
+                    {{ __('INICIO') }}
+                </x-jet-nav-link>
+                <x-jet-nav-link href="{{ route('profile.show') }}" :active="request()->routeIs('/user/profile')">
+                    {{ __('PERFIL') }}
+                </x-jet-nav-link>
+                <x-jet-nav-link href=" {{ route('deseo.index') }}" :active="request()->routeIs('deseo')">
+                    {{ __('MIS DESEOS') }}
+                </x-jet-nav-link>
+                <x-jet-nav-link href=" ??" :active="request()->routeIs('/votos')">
+                    {{ __('MIS VOTADOS') }}
                 </x-jet-nav-link>
             </ul>
 

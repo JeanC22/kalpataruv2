@@ -4,7 +4,7 @@
         <script src="{{ URL::asset('js/app.js') }}"></script>
         <script src="{{ asset('js/app.js') }}" ></script>
         <h2 class="h4 font-weight-bold">
-            {{ __('Profile') }}
+            {{ __('Perfil') }}
         </h2>
     </x-slot>
 

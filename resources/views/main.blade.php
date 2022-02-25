@@ -13,11 +13,12 @@
     <script src="{{ URL::asset('/js/app.js') }}"></script>
     <script type='text/javascript' src='https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js'>
     </script>
-
+        <script src="https://code.iconify.design/2/2.1.2/iconify.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
         integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <title>Jrecu</title>
+        <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <title>KALPATARUV2</title>
 
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
@@ -25,6 +26,7 @@
 
 <body>
     <div class="container">
+        
         <div class="row">
             <section id="bg-kalpa">
                 <div class="arriba"></div>
@@ -57,10 +59,14 @@
 
                             <ul class="navbar-nav navbar-nav me-0">
                                 @if (Route::has('login'))
-                                @auth
+                                @auth 
+
+                                <li class="nav-item">
+                                    <a href="{{ route('dashboard') }}" class="nav-link">ACTIVIDADES</a>
+                                </li>
                                 <li class="nav-item">
                                     <a href="{{ route('logout') }}" class="nav-link" onclick="event.preventDefault();
-                                            document.getElementById('logout-form').submit();">Cerrar Sesión</a>
+                                            document.getElementById('logout-form').submit();">CERRAR SESIÓN</a>
                                     <form method="POST" id="logout-form" action="{{ route('logout') }}">
                                         @csrf
                                     </form>
@@ -82,27 +88,38 @@
                 </nav>
             </header>
             {{-- fin navbar --}}
+            <div id="alert">
             @include('components.alert')
+            </div>
             {{-- imagen de presentación --}}
+            <div data-aos="fade-down">
+
             <div class="col-md-12 col-sm-12 mt-5 mb-5">
                 <img src="{{URL::asset('img/nombremasimagen.png')}}" class="img-fluid mt-5 " max-width="100%"
                     height="auto" srcset="">
             </div>
+        </div>
             {{-- fin de imagen de presentación --}}
             {{-- primera parte de contenido --}}
             <div class="col-md-12 col-sm-12 mt-5">
                 {{-- titulo --}}
                 <div class="d-flex justify-content-center">
-                    <h1>¿Qué es KALPATARU?</h1>
+                    <div id="animacionTitulo">
+                    <h1 >¿Qué es KALPATARU?</h1>
+                </div>
                 </div>
                 {{-- fin de titulo --}}
                 <div class="row mt-5">
-                    <div class="fs-3 col-md-4 offset-md-1 col-sm-6">
+                    
+                    <div class="fs-3 col-md-4 offset-md-1 col-sm-6"><div data-aos="fade-right">
                         Somo un proyecto donde nuetro principal objetivo es exponer los deseos de estudiantes del centro
                         San Luis
                     </div>
+                </div>
                     <div class="fs-3 col-md-4 offset-md-2 col-sm-6">
+                        <div data-aos="fade-left">
                         para combatir contra el maltrato de genero
+                    </div>
                     </div>
                 </div>
             </div>
@@ -110,7 +127,9 @@
             {{-- comienzo de deseos --}}
             <div class="col-md-12 col-sm-12 p-5 mt-5">
                 <div id="deseos" class="d-flex justify-content-center">
+                    <div id="animacionTituloDeseo">
                     <h1>Deseos</h1>
+                </div>
                 </div>
                 <div class="col-6 p-5">
                 </div>
@@ -145,11 +164,35 @@
                                                 <div class="col-md-4 mb-3">
                                                     <div class="card">
                                                         <div class="card-body">
-                                                            <h4 class="card-title">{{$deseo->user->name}} </h4>
-                                                            <p class="card-text">{{$deseo->user->curso->nombreCurso}}</p>
-                                                            <p class="card-text">
+                                                            <h4 class="card-title">{{$deseo->user->name}}</h4> 
+                                                            <p class="card-text">{{$deseo->user->curso->nombreCurso}}</p><hr>
+                                                            <p class="card-text">{{$deseo->texto}}</p>
+                                                            <form action="{{route('deseo.update',[$deseo])}}" method="post" enctype="multipart/form">
+                                                                @csrf
+                                                                @method('PUT')
                                                                 {{$deseo->texto}}
-                                                            </p>
+                                                                <div class="text-end">
+                                                                    @if (Auth::check())
+                                                                        @if($deseo->valorar->contains(Auth::user()->id))
+                                                                        <form action="{{route('deseo.destroy',[$deseo])}}" method="post" enctype="multipart/form">
+                                                                            @csrf
+                                                                            @method('DELETE')
+                                                                            <button type="submit" class="btn-sin"><span class="iconify" data-icon="ant-design:heart-filled" style="color: rgb(175, 62, 62);"></span></button>{{$deseo->valorar->count()}}
+                                                                        </form>
+                                                                        @else
+                        
+                                                                        <form action="{{route('deseo.update',[$deseo])}}" method="POST" enctype="multipart/form">
+                                                                            @csrf
+                                                                            @method('PUT')
+                        
+                                                                            <button type="submit" class="btn-sin"><span class="iconify" data-icon="ant-design:heart-outlined" style="color: rgb(175, 62, 62);"></span></button>  {{$deseo->valorar->count()}}
+                                                                        </form>
+                                                                    @endif
+                                                                    @else
+                                                                    <span class="iconify" data-icon="ant-design:heart-filled" style="color: rgb(175, 62, 62);"></span>
+                                                                @endif
+                                                                </div>
+                                                            </form>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -188,13 +231,13 @@
                             data-dismiss="modal" aria-label="Close">
                         </button>
                     </div>
-                    <div class="modal-body">
+                    <div class="modal-body shadow-ks">
                         <div class="icon d-flex align-items-center justify-content-center">
                             <img src="{{URL::asset('img/logoRegister.png')}}" class="img-fluid mt-2 mb-3 "
                                 max-width="100%" height="auto" srcset=""> </div>
                         <h3 class="text-center mb-4">Crear un deseo</h3>
                         {{-- form de envio de deseo --}}
-                        <form action="{{route('deseo.store')}}" method="post">
+                        <form action="{{route('deseo.store')}}" method="post" onsubmit='return validar()'>
                             @csrf
                             <div class="input-group mb-3 ">
                                 <textarea class="form-control" id="textdeseo" name="textdeseo"
@@ -211,9 +254,49 @@
         </div>
     </div>
     </div>
+    <div class="d-flex justify-content-end m-3">
+    <button id="pararriba" class="btn-sin"><span class="iconify" data-icon="akar-icons:arrow-up" data-width="48" data-height="48"></span>
+    </span>
+    </button>
+    </div>
     <section id="bg-kalpa">
         <div class="arriba"></div>
     </section>
 </body>
+<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script>
+  AOS.init();
+</script>
+<script>
+    setTimeout(dspnone, 3000);
+    function dspnone() {
+        document.getElementById("alert").className ="d-none";
+    }
 
+</script>
+<script type='text/javascript'>
+
+    function validar()
+    {
+        var todoCorrecto = true;
+        if(document.getElementById('textdeseo').value.length < 5 ){
+            todoCorrecto = false;
+}
+    
+    if(!todoCorrecto){
+    alert('el deseo ha de contener mas de 5 palabras');
+    }
+    return todoCorrecto;
+}
+</script>    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/elevator.js/1.0.0/elevator.min.js" integrity="sha512-ELEM91Vwd3E6fZGIryxLLU1p5NeTeKK8RQzZJBUd6+9pIyYi3/od9clS0/0W3wXHlI29Yh9pC1TpQGBDixlGeg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+<script>
+    window.onload = function()
+    {
+        var elevador = new Elevator({
+            element: document.getElementById("pararriba")
+        });
+     }
+</script>
 </html>

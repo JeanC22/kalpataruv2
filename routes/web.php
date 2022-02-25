@@ -2,6 +2,9 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DeseoController;
+use App\Http\Controllers\MisVotadosController;
+use App\Http\Controllers\HomeController;
+
 use App\models\Deseo;
 use App\Http\Livewire\Deseos;
 
@@ -26,6 +29,8 @@ Route::get('/', function () {
 
 Route::resource('deseo',DeseoController::class);
 
+Route::resource('votados',MisVotadosController::class);
+
 Route::middleware(['auth:sanctum','verified'])->get('/dashboard', function(){
 
     return view('dashboard');
@@ -34,7 +39,4 @@ Route::middleware(['auth:sanctum','verified'])->get('/dashboard', function(){
 Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();
 });
-
-Route::get('/phpinfo', function() {
-    return phpinfo();
-});
+Route::get('/estadisticas',[HomeController::class, 'index']);

@@ -17,4 +17,8 @@ class Deseo extends Model
     
     public function user(){
         return $this->belongsTo(User::class,'usuario_id','id');
-}}
+    }
+    public function valorar(){
+    return $this->belongsToMany(Deseo::class,'valoracion_deseos', 'deseo_id','usuario_id');
+    }
+}
